@@ -35,3 +35,12 @@ a.out
 
 # Course-provided datasets (kept locally)
 ca1-mpi-federated-learning/Data/
+
+# CA4 runtime artifacts
+ca4-torchrun-and-pytorch-ddp/checkpoints/
+ca4-torchrun-and-pytorch-ddp/results/
+ca4-torchrun-and-pytorch-ddp/*.out
+ca4-torchrun-and-pytorch-ddp/data/train_data/
+ca4-torchrun-and-pytorch-ddp/data/test_data/
+ca4-torchrun-and-pytorch-ddp/data/*.zip
+ca4-torchrun-and-pytorch-ddp/DMLS_CA4.pdf

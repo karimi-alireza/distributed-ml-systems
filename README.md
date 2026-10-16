@@ -11,6 +11,7 @@ The assignments were run on the course's own infrastructure: a **Slurm/MPI CPU c
 | CA1 | [MPI & federated learning](ca1-mpi-federated-learning/) | π estimation parallelised with **block vs. cyclic** work distribution under deliberately unbalanced per-term cost; **FedAvg** logistic regression with one server and three clients on non-IID data (1 round × 10 epochs vs. 10 rounds × 1 epoch), plus a malicious-client experiment; determinant and inverse benchmarks comparing **OpenBLAS and Apple Accelerate** | Python, mpi4py, Slurm, PyTorch, NumPy |
 | CA2 | [CUDA & PyTorch DDP](ca2-cuda-and-pytorch-ddp/) | A **fused Conv2d + ReLU CUDA kernel** exposed to PyTorch as an autograd function and benchmarked against cuDNN, cuDNN-off and CPU on 2- and 10-layer CNNs; an STL-10 CNN trained on one GPU and then two GPUs with **DistributedDataParallel**, sweeping batch size (16–128) and **gloo vs. NCCL** backends | CUDA C++, PyTorch, torch.distributed |
 | CA3 | [Spark & HDFS](ca3-spark-hdfs/) | Video-game sales analytics with **pure RDD** transformations; a **Word2Vec** model on a Wikipedia corpus (nearest neighbours, king − man + woman ≈ queen); a Titanic pipeline that reads from **HDFS**, runs exploratory aggregations, trains a Spark ML logistic regression, and writes the accuracy back to HDFS | PySpark (RDD, SQL, ML), HDFS |
+| CA4 | [Torchrun, Accelerate & profiling](ca4-torchrun-and-pytorch-ddp/) | A CPU-only feed-forward classifier trained across one or two Slurm nodes with **torchrun/DDP** and **Hugging Face Accelerate**; communication-efficient gradient accumulation, four topology experiments, rank-zero checkpointing, and per-module CPU time/memory profiling | PyTorch, Gloo, Slurm, Accelerate |
 
 ## Project – Communication-Efficient Distributed SGD
 
@@ -41,6 +42,7 @@ Local SGD matched synchronous SGD's accuracy with about 15× less simulated time
 
 - CA1: the serial and both MPI π programs agree (π ≈ 3.1415907), and the cyclic split removes the load imbalance (0.7 s / 3.5 s per process → 2.0 s / 2.0 s). FedAvg and the malicious-client run complete with one server and three workers.
 - CA3: the RDD analysis in `VideoGameSales.ipynb` was re-executed with local Spark and reproduces the notebook's results.
+- CA4: the data loader, profiler, single-process training, and two-process Gloo/DDP and Accelerate paths were exercised locally; the default model reached 84.4% test accuracy after five epochs. The multi-node Slurm topologies still require the course cluster environment.
 - The GPU and cluster parts (CA2, the CA3 HDFS job) need the course hardware; their recorded outputs are in the notebooks and reports.
 
 ## Running
