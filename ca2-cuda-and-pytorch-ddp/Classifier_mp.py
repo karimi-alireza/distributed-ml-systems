@@ -1,5 +1,5 @@
 # https://gemini.google.com/share/ac438c5ae73e
-# my prompt: make this code adapted to what I have written in the classifier.py file.
+# my prompt: make this code adapted to what I have written in the Classifier.py file.
 # https://gemini.google.com/share/1cbeb661d50e
 # my prompt: Add --batch_size and --backend arguments through command line (like what mvajhi did in his github)
 # my prompt: print every epoch

@@ -53,7 +53,7 @@ cd ca1-mpi-federated-learning/1.3 && mpirun -n 4 python pi_parallel_v2.py
 cd ../2.2 && mpirun -n 4 python logreg_fedavg.py --num_rounds 10 --num_epochs 1   # needs ../Data/
 
 # CA2 – two GPUs
-python ca2-cuda-and-pytorch-ddp/classifier_mp.py --batch_size 32 --backend nccl
+python ca2-cuda-and-pytorch-ddp/Classifier_mp.py --batch_size 32 --backend nccl
 ```
 
 The CA1 client datasets and the CA3 CSVs were provided by the course and aren't included.
